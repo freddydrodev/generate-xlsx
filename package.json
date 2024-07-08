@@ -1,0 +1,27 @@
+{
+  "name": "@freddydrodev/generate-xlsx",
+  "version": "0.0.1",
+  "description": "Get the size of a JSON object in bytes",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup && npm publish --access public"
+  },
+  "keywords": [],
+  "author": "Diomande Dro Freddy Junior",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/file-saver": "^2.0.7",
+    "tsup": "^8.1.0",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "file-saver": "^2.0.5"
+  }
+}
