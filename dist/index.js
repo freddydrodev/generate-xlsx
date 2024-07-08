@@ -1,2 +1,199 @@
-"use strict";var H=Object.create;var _=Object.defineProperty,U=Object.defineProperties,B=Object.getOwnPropertyDescriptor,G=Object.getOwnPropertyDescriptors,w=Object.getOwnPropertyNames,L=Object.getOwnPropertySymbols,C=Object.getPrototypeOf,N=Object.prototype.hasOwnProperty,X=Object.prototype.propertyIsEnumerable;var P=(n,e,t)=>e in n?_(n,e,{enumerable:!0,configurable:!0,writable:!0,value:t}):n[e]=t,h=(n,e)=>{for(var t in e||(e={}))N.call(e,t)&&P(n,t,e[t]);if(L)for(var t of L(e))X.call(e,t)&&P(n,t,e[t]);return n},O=(n,e)=>U(n,G(e));var $=(n,e)=>{for(var t in e)_(n,t,{get:e[t],enumerable:!0})},b=(n,e,t,a)=>{if(e&&typeof e=="object"||typeof e=="function")for(let o of w(e))!N.call(n,o)&&o!==t&&_(n,o,{get:()=>e[o],enumerable:!(a=B(e,o))||a.enumerable});return n};var v=(n,e,t)=>(t=n!=null?H(C(n)):{},b(e||!n||!n.__esModule?_(t,"default",{value:n,enumerable:!0}):t,n)),W=n=>b(_({},"__esModule",{value:!0}),n);var D=(n,e,t)=>new Promise((a,o)=>{var p=r=>{try{l(t.next(r))}catch(i){o(i)}},A=r=>{try{l(t.throw(r))}catch(i){o(i)}},l=r=>r.done?a(r.value):Promise.resolve(r.value).then(p,A);l((t=t.apply(n,e)).next())});var j={};$(j,{generateXLSXGrid:()=>z});module.exports=W(j);var f=v(require("exceljs")),S=require("file-saver");var d={bottom:{color:{argb:"FF000000"},style:"thin"},top:{color:{argb:"FF000000"},style:"thin"},left:{color:{argb:"FF000000"},style:"thin"},right:{color:{argb:"FF000000"},style:"thin"}},T={horizontal:"center",vertical:"middle",wrapText:!0},J="Goudy Old Style",k="Goudy Old Style Bold",m=50;var u={size:16,name:J},q=O(h({},u),{bold:!0,name:k});var z=n=>D(void 0,null,function*(){var I,R,g;let{data:e,config:t,rowAlignment:a,defaultFont:o,height:p,fileName:A,headers:l}=n,r=new f.default.Workbook,i=r.addWorksheet(t.name,{views:[{style:"pageBreakPreview"}],properties:{defaultRowHeight:(I=t.colHeight)!=null?I:m},headerFooter:{oddFooter:"&C&A_&F&RPage &P / &N"},pageSetup:{paperSize:9,horizontalCentered:!0,scale:(R=t.zoom)!=null?R:60,orientation:(g=t.orientation)!=null?g:"portrait",margins:{top:0,bottom:0,left:0,right:0,header:0,footer:0}}});i.columns=l,i.eachRow(E=>{E.height=p!=null?p:m}),i.columns.forEach((E,y)=>{var s;(s=E.eachCell)==null||s.call(E,{includeEmpty:!0},c=>{c.border=d,c.font=o!=null?o:u,c.alignment=a!=null?a:T,c.fill={pattern:"solid",type:"pattern",fgColor:{argb:"FFD9D9D9"}}})});let F=i.addRows(e);if(F.length>0&&F.forEach((E,y)=>{E.height=m,E.eachCell({includeEmpty:!0},(s,c)=>{s.border=d,s.alignment=T,s.font=u})}),e.length<=0||l.length<=0)return;let x=yield r.xlsx.writeBuffer(),M=new Blob([x],{type:"applicationi/xlsx"});(0,S.saveAs)(M,A)});0&&(module.exports={generateXLSXGrid});
+"use strict";
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __getProtoOf = Object.getPrototypeOf;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+var __export = (target, all) => {
+  for (var name in all)
+    __defProp(target, name, { get: all[name], enumerable: true });
+};
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+  }
+  return to;
+};
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
+var __async = (__this, __arguments, generator) => {
+  return new Promise((resolve, reject) => {
+    var fulfilled = (value) => {
+      try {
+        step(generator.next(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var rejected = (value) => {
+      try {
+        step(generator.throw(value));
+      } catch (e) {
+        reject(e);
+      }
+    };
+    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
+    step((generator = generator.apply(__this, __arguments)).next());
+  });
+};
+
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
+  generateXLSXGrid: () => generateXLSXGrid
+});
+module.exports = __toCommonJS(src_exports);
+var import_exceljs = __toESM(require("exceljs"));
+var import_file_saver = require("file-saver");
+
+// src/constants.ts
+var DEFAULT_BORDER = {
+  bottom: { color: { argb: "FF000000" }, style: "thin" },
+  top: { color: { argb: "FF000000" }, style: "thin" },
+  left: { color: { argb: "FF000000" }, style: "thin" },
+  right: { color: { argb: "FF000000" }, style: "thin" }
+};
+var DEFAULT_ROW_ALIGNEMENT = {
+  horizontal: "center",
+  vertical: "middle",
+  wrapText: true
+};
+var DEFAULT_XLSX_FONT = "Goudy Old Style";
+var ROW_HEIGHT = 50;
+var DEFAULT_ROW_FONT = {
+  size: 16,
+  name: DEFAULT_XLSX_FONT
+};
+var BOLD_XLSX_FONT = "Goudy Old Style Bold";
+var BOLD_FONT = __spreadProps(__spreadValues({}, DEFAULT_ROW_FONT), {
+  bold: true,
+  name: BOLD_XLSX_FONT
+});
+var DEFAULT_NUM_FMT = "# ##0 [$F CFA-fr-CI]";
+
+// src/index.ts
+var generateXLSXGrid = (args) => __async(void 0, null, function* () {
+  var _a, _b, _c, _d, _e;
+  const { data, config, rowAlignment, defaultFont, height, fileName, headers } = args;
+  const wb = new import_exceljs.default.Workbook();
+  const sheet = wb.addWorksheet(config.name, {
+    views: [{ style: "pageBreakPreview" }],
+    properties: {
+      defaultRowHeight: (_a = config.colHeight) != null ? _a : ROW_HEIGHT
+    },
+    headerFooter: {
+      oddFooter: "&F&RPage &P / &N"
+    },
+    pageSetup: {
+      paperSize: 9,
+      horizontalCentered: true,
+      scale: (_b = config.zoom) != null ? _b : 100,
+      orientation: (_c = config.orientation) != null ? _c : "portrait",
+      margins: {
+        top: 0.75,
+        bottom: 0.75,
+        left: 0.25,
+        right: 0.25,
+        header: 0.3,
+        footer: 0.3
+      }
+    }
+  });
+  sheet.columns = headers;
+  sheet.eachRow((row) => {
+    row.height = height != null ? height : ROW_HEIGHT;
+  });
+  sheet.columns.forEach((column, index) => {
+    var _a2;
+    (_a2 = column.eachCell) == null ? void 0 : _a2.call(column, { includeEmpty: false }, (cell) => {
+      var _a3, _b2, _c2, _d2;
+      const header = headers.at(index);
+      cell.border = (_a3 = header == null ? void 0 : header.border) != null ? _a3 : DEFAULT_BORDER;
+      cell.font = (_b2 = header == null ? void 0 : header.font) != null ? _b2 : BOLD_FONT;
+      column.alignment = (_c2 = header == null ? void 0 : header.alignment) != null ? _c2 : DEFAULT_ROW_ALIGNEMENT;
+      cell.fill = {
+        pattern: "solid",
+        type: "pattern",
+        fgColor: { argb: "FFD9D9D9" }
+      };
+      if ((header == null ? void 0 : header.isCurrency) || (header == null ? void 0 : header.isNumber)) {
+        column.numFmt = ((_d2 = header == null ? void 0 : header.numFmt) != null ? _d2 : header.isCurrency) ? DEFAULT_NUM_FMT : "#,##;-#,##";
+      }
+    });
+  });
+  const dataRow = sheet.addRows(data);
+  if (dataRow.length > 0) {
+    dataRow.forEach((r, i) => {
+      r.height = ROW_HEIGHT;
+      r.eachCell({ includeEmpty: false }, (cell, colNumber) => {
+        var _a2, _b2, _c2;
+        const header = headers.at(colNumber - 1);
+        cell.border = (_a2 = header == null ? void 0 : header.border) != null ? _a2 : DEFAULT_BORDER;
+        cell.alignment = (_b2 = header == null ? void 0 : header.alignment) != null ? _b2 : DEFAULT_ROW_ALIGNEMENT;
+        cell.font = (_c2 = header == null ? void 0 : header.font) != null ? _c2 : DEFAULT_ROW_FONT;
+      });
+    });
+  }
+  const totauxFields = {};
+  for (let i = 0; i < headers.length; i++) {
+    const h = headers[i];
+    if (h.hasTotal) {
+      totauxFields[(_d = h.key) != null ? _d : "-"] = 0;
+    } else {
+      totauxFields[(_e = h.key) != null ? _e : "-"] = null;
+    }
+  }
+  const total = sheet.addRow(totauxFields);
+  total.height = ROW_HEIGHT;
+  total.eachCell({ includeEmpty: true }, (cell, colNumber) => {
+    var _a2, _b2, _c2;
+    const header = headers[colNumber - 1];
+    cell.border = (_a2 = header == null ? void 0 : header.border) != null ? _a2 : DEFAULT_BORDER;
+    cell.alignment = (_b2 = header == null ? void 0 : header.alignment) != null ? _b2 : DEFAULT_ROW_ALIGNEMENT;
+    cell.font = (_c2 = header == null ? void 0 : header.font) != null ? _c2 : BOLD_FONT;
+    if (header == null ? void 0 : header.hasTotal) {
+      console.log(header);
+      const col = cell.address.replace(/[0-9]+/gi, "");
+      cell.value = {
+        date1904: false,
+        formula: `SUM(${col + "1"}:${col + (cell.row - 1)})`
+      };
+    }
+  });
+  if (data.length <= 0 || headers.length <= 0) return;
+  const buffer = yield wb.xlsx.writeBuffer();
+  const blob = new Blob([buffer], { type: "applicationi/xlsx" });
+  (0, import_file_saver.saveAs)(blob, fileName.replace(/\.xlsx/gi, "") + ".xlsx");
+});
+// Annotate the CommonJS export names for ESM import in node:
+0 && (module.exports = {
+  generateXLSXGrid
+});
 //# sourceMappingURL=index.js.map

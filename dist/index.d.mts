@@ -12,7 +12,11 @@ type GenerateXLSXArgs = {
     data: {
         [key: string]: string | number;
     }[];
-    headers: Pick<Partial<ExcelJS.Column>, "key" | "header" | "border" | "alignment" | "fill" | "numFmt" | "values" | "width" | "style" | "font">[];
+    headers: ({
+        isCurrency?: boolean;
+        isNumber?: boolean;
+        hasTotal?: boolean;
+    } & Pick<Partial<ExcelJS.Column>, "key" | "header" | "border" | "alignment" | "fill" | "numFmt" | "values" | "width" | "style" | "font">)[];
     rowAlignment?: Partial<Alignment>;
     defaultFont?: Partial<Font>;
     boldFont?: Partial<Font>;
