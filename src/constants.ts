@@ -13,21 +13,21 @@ export const DEFAULT_ROW_ALIGNEMENT: Partial<Alignment> = {
   wrapText: true,
 };
 
-const DEFAULT_XLSX_FONT = "Goudy Old Style";
+// const DEFAULT_XLSX_FONT = "Goudy Old Style";
 
 export const ROW_HEIGHT = 50;
 
 export const DEFAULT_ROW_FONT: Partial<Font> = {
   size: 16,
-  name: DEFAULT_XLSX_FONT,
+  // name: DEFAULT_XLSX_FONT,
 };
 
-export const BOLD_XLSX_FONT = "Goudy Old Style Bold";
+// export const BOLD_XLSX_FONT = "Goudy Old Style Bold";
 
 export const BOLD_FONT: Partial<Font> = {
   ...DEFAULT_ROW_FONT,
   bold: true,
-  name: BOLD_XLSX_FONT,
+  // name: BOLD_XLSX_FONT,
 };
 
-export const DEFAULT_NUM_FMT = "# ##0 [$F CFA-fr-CI]";
+export const DEFAULT_NUM_FMT = "# ##0 [$F CFA-fr-CI];-# ##0 [$F CFA-fr-CI]";
