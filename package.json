@@ -1,6 +1,6 @@
 {
   "name": "@freddydrodev/generate-xlsx",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Get the size of a JSON object in bytes",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
