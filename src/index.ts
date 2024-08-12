@@ -106,6 +106,8 @@ export const generateXLSXGrid = async (args: GenerateXLSXArgs) => {
       if (header?.isCurrency || header?.isNumber) {
         column.numFmt =
           header?.numFmt ?? header.isCurrency ? DEFAULT_NUM_FMT : "#,##;-#,##";
+
+        console.log(column.numFmt);
       }
     });
   });

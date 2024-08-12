@@ -30,4 +30,4 @@ export const BOLD_FONT: Partial<Font> = {
   // name: BOLD_XLSX_FONT,
 };
 
-export const DEFAULT_NUM_FMT = "# ### [$F CFA-fr-CI];-# ### [$F CFA-fr-CI]";
+export const DEFAULT_NUM_FMT = "#,### [$F CFA-fr-CI];-#,### [$F CFA-fr-CI]";
